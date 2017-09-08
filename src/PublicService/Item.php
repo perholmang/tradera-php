@@ -85,7 +85,7 @@ class Item
 
         $this->NextBid = $result->NextBid;
 
-        $this->ShippingOptions = new ItemShipping($result->ShippingOptions);
+        $this->ShippingOptions = isset($result->ShippingOptions) ? new ItemShipping($result->ShippingOptions) : null;
 
         $this->PaymentCondition = $result->PaymentCondition;
         $this->ShippingCondition = $result->ShippingCondition;
