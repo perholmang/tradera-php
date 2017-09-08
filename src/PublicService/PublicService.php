@@ -26,7 +26,9 @@ class PublicService extends BaseService
 
         $response = $client->GetItem($params);
 
-        var_dump($response);
+        if (!isset($response->GetItemResult)) {
+            throw new ItemNotFoundException();
+        }
 
         return new Item($response->GetItemResult);
     }

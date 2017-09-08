@@ -2,9 +2,10 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
+use Holmang\Tradera\PublicService\PublicService;
 use Holmang\Tradera\Search\SearchService;
 
-$service = new SearchService([
+/*$service = new SearchService([
     'appId' => '1461',
     'appKey' => 'fe2b3cbf-fd5c-43b3-b341-1aa26f802d95'
 ]);
@@ -12,13 +13,15 @@ $service = new SearchService([
 $request = new \Holmang\Tradera\Search\SearchAdvancedRequest();
 $request->CategoryId = 2108;
 
-$response = $service->searchAdvanced($request);
+$response = $service->searchAdvanced($request);*/
 
-var_dump($response);
+// var_dump($response);
 
-/*$public = new PublicService([
+$public = new PublicService([
     'appId' => '1461',
     'appKey' => 'fe2b3cbf-fd5c-43b3-b341-1aa26f802d95'
 ]);
 
-$response = $public->GetItem('289003927');*/
+$response = $public->GetItem(1021);
+
+var_dump($response);
