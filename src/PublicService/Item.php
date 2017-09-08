@@ -84,10 +84,10 @@ class Item
         }
 
         $this->NextBid = $result->NextBid;
-        
+
         $this->ShippingOptions = array_map(function ($option) {
             new ItemShipping($option);
-        }, $result->ShippingOptions);
+        }, is_array($result->ShippingOptions) ? $result->ShippingOptions : array($result->ShippingOptions));
 
         $this->PaymentCondition = $result->PaymentCondition;
         $this->ShippingCondition = $result->ShippingCondition;
