@@ -11,6 +11,10 @@ class PublicService extends BaseService
         parent::__construct('http://api.tradera.com/v3/PublicService.asmx', $config);
     }
 
+    /**
+     * @param $itemId
+     * @return Item
+     */
     public function GetItem($itemId)
     {
         $client = new \SoapClient($this->url . "?WSDL", array(

@@ -12,6 +12,10 @@ class SearchService extends BaseService
         parent::__construct('http://api.tradera.com/v3/searchservice.asmx', $config);
     }
 
+    /**
+     * @param SearchAdvancedRequest $request
+     * @return SearchAdvancedResult
+     */
     public function searchAdvanced(SearchAdvancedRequest $request)
     {
         $client = new \SoapClient($this->url . "?WSDL", array(
