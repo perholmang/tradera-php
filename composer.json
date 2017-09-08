@@ -1,0 +1,19 @@
+{
+    "name": "holmang/tradera-php",
+    "description": "Tradera PHP wrapper",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Per Holmang",
+            "email": "hello@perholmang.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Holmang\\Tradera\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.3"
+    }
+}
