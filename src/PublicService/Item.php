@@ -84,8 +84,10 @@ class Item
         }
 
         $this->NextBid = $result->NextBid;
-
-        $this->ShippingOptions = isset($result->ShippingOptions) ? new ItemShipping($result->ShippingOptions) : null;
+        
+        $this->ShippingOptions = array_map(function ($option) {
+            new ItemShipping($option);
+        }, $result->ShippingOptions);
 
         $this->PaymentCondition = $result->PaymentCondition;
         $this->ShippingCondition = $result->ShippingCondition;
