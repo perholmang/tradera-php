@@ -110,8 +110,7 @@ class Item
 
         $this->MaxBidder = isset($result->MaxBidder) ? new User($result->MaxBidder) : null;
 
-        $this->Status = new ItemStatus($result->Status);
-
+        $this->Status = $result->Status ? new ItemStatus($result->Status) : null;
 
         $this->StartQuantity = $result->StartQuantity;
         $this->RemainingQuantity = $result->RemainingQuantity;
