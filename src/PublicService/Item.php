@@ -67,6 +67,8 @@ class Item
      */
     public function __construct($result)
     {
+        var_dump($result);
+
         $this->Id = $result->Id;
         $this->VAT = $result->VAT;
         $this->ShortDescription = $result->ShortDescription;
