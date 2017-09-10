@@ -24,8 +24,6 @@ class PublicService extends BaseService
         $params = new \stdClass();
         $params->itemId = $itemId;
 
-        var_dump($itemId);
-
         $response = $client->GetItem($params);
 
         if (!isset($response->GetItemResult)) {
