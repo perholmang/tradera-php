@@ -15,7 +15,7 @@ class SearchAdvancedRequest
     public $CountyId = 0;
     public $Alias;
     public $OrderBy = 'EndDateDescending';
-    public $ItemStatus = 'Ended';
+    public $ItemStatus;
     public $ItemType = 'Auction';
     public $OnlyAuctionsWithBuyNow = false;
     public $OnlyItemsWithThumbnail = false;

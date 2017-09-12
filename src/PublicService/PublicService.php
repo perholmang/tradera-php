@@ -32,4 +32,21 @@ class PublicService extends BaseService
 
         return new Item($response->GetItemResult);
     }
+
+    public function GetCategories()
+    {
+        $client = new \SoapClient($this->url . "?WSDL", array(
+            "location" => $this->buildLocation()
+        ));
+
+        $response = $client->GetCategories();
+
+        $categories = [];
+
+        foreach ($response->GetCategoriesResult->Category as $category) {
+            $categories[] = new Category($category);
+        }
+        
+        return $categories;
+    }
 }

@@ -21,7 +21,7 @@ class SearchService extends BaseService
         $client = new \SoapClient($this->url . "?WSDL", array(
             'location' => $this->buildLocation(),
             'trace' => 1,
-            'exception' => 0
+            'exception' => 1
         ));
 
         $response = $client->SearchAdvanced(['request' => $request]);
