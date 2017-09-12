@@ -17,7 +17,7 @@ class Category
 
         if (isset($result->Category)) {
             foreach ($result->Category as $child) {
-                if ($child && $child->Id && $child->Name) {
+                if (is_object($child) && $child->Id && $child->Name) {
                     $this->Children[] = new Category($child);
                 }
             }
