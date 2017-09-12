@@ -46,7 +46,7 @@ class PublicService extends BaseService
         foreach ($response->GetCategoriesResult->Category as $category) {
             $categories[] = new Category($category);
         }
-        
+
         return $categories;
     }
 }
