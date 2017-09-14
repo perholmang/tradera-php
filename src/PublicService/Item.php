@@ -96,7 +96,12 @@ class Item
         $this->TotalBids = $result->TotalBids;
         $this->MaxBid = $result->MaxBid;
 
-        $this->ImageLinks = is_array($result->ImageLinks->string) ? $result->ImageLinks->string : array($result->ImageLinks->string);
+        if (isset($result->ImageLinks->string)) {
+            $this->ImageLinks = is_array($result->ImageLinks->string) ? $result->ImageLinks->string : array($result->ImageLinks->string);
+        } else {
+            $this->ImageLinks = [];
+        }
+
 
         $this->Bold = $result->Bold;
         $this->Thumbnail = $result->Thumbnail;
