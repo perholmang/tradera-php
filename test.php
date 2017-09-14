@@ -25,6 +25,6 @@ $public = new PublicService([
 ]);
 
 
-$response = $public->GetCategories();
+$response = $public->GetItem(289573069);
 
 var_dump($response);

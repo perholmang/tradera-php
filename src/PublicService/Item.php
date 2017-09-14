@@ -106,7 +106,11 @@ class Item
         $this->Bold = $result->Bold;
         $this->Thumbnail = $result->Thumbnail;
         $this->ItemLink = $result->ItemLink;
-        $this->ThumbnailLink = $result->ThumbnailLink;
+
+        if (isset($result->ThumbnailLink)) {
+            $this->ThumbnailLink = $result->ThumbnailLink;
+        }
+        
         $this->AcceptedBuyerId = $result->AcceptedBuyerId;
         $this->Paypal = $result->Paypal;
         $this->PaymentTypeId = $result->PaymentTypeId;
