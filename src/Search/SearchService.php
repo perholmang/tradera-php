@@ -26,6 +26,10 @@ class SearchService extends BaseService
 
         $response = $client->SearchAdvanced(['request' => $request]);
 
+        if (!isset($response->SearchAdvancedResult) || !isset($response->SearchAdvancedResult->Items)) {
+            throw new \RuntimeException($response);
+        }
+
         return new SearchAdvancedResult($response);
     }
 }

@@ -110,7 +110,7 @@ class Item
         if (isset($result->ThumbnailLink)) {
             $this->ThumbnailLink = $result->ThumbnailLink;
         }
-        
+
         $this->AcceptedBuyerId = $result->AcceptedBuyerId;
         $this->Paypal = $result->Paypal;
         $this->PaymentTypeId = $result->PaymentTypeId;

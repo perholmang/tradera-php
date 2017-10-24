@@ -19,7 +19,7 @@ class SearchAdvancedRequest
     public $ItemType = 'Auction';
     public $OnlyAuctionsWithBuyNow = false;
     public $OnlyItemsWithThumbnail = false;
-    public $ItemsPerPage = 25;
+    public $ItemsPerPage = 500;
     public $PageNumber = 1;
     public $ItemCondition;
     public $SellerType;
