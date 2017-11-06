@@ -92,7 +92,7 @@ class Item
         $this->PaymentCondition = $result->PaymentCondition;
         $this->ShippingCondition = $result->ShippingCondition;
         $this->AcceptsPickup = $result->AcceptsPickup;
-        $this->PaymentOptions = $result->PaymentOptions->int;
+        //$this->PaymentOptions = $result->PaymentOptions->int;
         $this->TotalBids = $result->TotalBids;
         $this->MaxBid = $result->MaxBid;
 
