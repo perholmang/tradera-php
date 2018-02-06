@@ -25,9 +25,15 @@ class SearchAdvancedResult
         $this->TotalNumberOfItems = $response->SearchAdvancedResult->TotalNumberOfItems;
         $this->TotalNumberOfPages = $response->SearchAdvancedResult->TotalNumberOfPages;
 
-        $this->Items = array_map(function($item) {
+        $this->Items = array_map(function ($item) {
+            if (!isset($item->SellerAlias)) {
+                return null;
+            }
+
             return new SearchItem($item);
         }, $response->SearchAdvancedResult->Items);
+
+        $this->Items = array_filter($this->Items);
     }
 
 
