@@ -18,13 +18,18 @@ class PublicService extends BaseService
     public function GetItem($itemId)
     {
         $client = new \SoapClient($this->url . "?WSDL", array(
+            "exceptions" => 0,
             "location" => $this->buildLocation()
         ));
+
 
         $params = new \stdClass();
         $params->itemId = $itemId;
 
         $response = $client->GetItem($params);
+
+        /*var_dump($client->__getLastRequestHeaders());
+        die;*/
 
         if (!isset($response->GetItemResult)) {
             throw new ItemNotFoundException();

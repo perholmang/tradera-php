@@ -25,6 +25,7 @@ class SearchService extends BaseService
         ));
 
         $response = $client->SearchAdvanced(['request' => $request]);
+        var_dump($response);
 
         if (!isset($response->SearchAdvancedResult) || !isset($response->SearchAdvancedResult->Items)) {
             throw new \RuntimeException($response);
