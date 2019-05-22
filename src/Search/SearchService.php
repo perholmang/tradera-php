@@ -9,7 +9,7 @@ class SearchService extends BaseService
 {
     public function __construct(array $config = [])
     {
-        parent::__construct('http://api.tradera.com/v3/searchservice.asmx', $config);
+        parent::__construct('https://beta-api.tradera.com/v3/searchservice.asmx', $config);
     }
 
     /**
@@ -25,10 +25,11 @@ class SearchService extends BaseService
         ));
 
         $response = $client->SearchAdvanced(['request' => $request]);
-        var_dump($response);
+        // var_dump($response);
 
         if (!isset($response->SearchAdvancedResult) || !isset($response->SearchAdvancedResult->Items)) {
-            throw new \RuntimeException($response);
+            // throw new \Exception($response->__to);
+            die('ok!');
         }
 
         return new SearchAdvancedResult($response);
