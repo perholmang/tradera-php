@@ -34,7 +34,7 @@ class PublicService extends BaseService
             if ($e->faultstring === 'Forbidden') {
                 throw new InvalidCredentialsException();
             } else {
-                throw new QuotaExceededException();
+                throw new QuotaExceededException($e);
             }
         }
 
