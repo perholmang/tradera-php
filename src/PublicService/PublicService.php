@@ -48,6 +48,19 @@ class PublicService extends BaseService
         return new Item($response->GetItemResult);
     }
 
+    public function GetOfficalTime()
+    {
+        $client = new \SoapClient($this->url . "?WSDL", array(
+            "location" => $this->buildLocation()
+        ));
+
+        $response = $client->GetOfficalTime();
+
+        $time = $response->GetOfficalTimeResult;
+
+        return \DateTime::createFromFormat('Y-m-d\TH:i:s.u', $time);
+    }
+
     public function GetCategories()
     {
         $client = new \SoapClient($this->url . "?WSDL", array(

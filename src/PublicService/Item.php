@@ -2,6 +2,8 @@
 
 namespace Holmang\Tradera\PublicService;
 
+use DateTimeZone;
+
 class Item
 {
     public $Id;
@@ -72,8 +74,8 @@ class Item
         $this->ShortDescription = $result->ShortDescription;
         $this->OwnReferences = $result->OwnReferences;
         $this->LongDescription = $result->LongDescription;
-        $this->StartDate = $result->StartDate;
-        $this->EndDate = $result->EndDate;
+        $this->StartDate = \DateTime::createFromFormat('Y-m-d\TH:i:s.u', $result->StartDate, new DateTimeZone('Europe/Stockholm'));
+        $this->EndDate = \DateTime::createFromFormat('Y-m-d\TH:i:s.u', $result->EndDate, new DateTimeZone('Europe/Stockholm'));
         $this->CategoryId = $result->CategoryId;
         $this->OpeningBid = $result->OpeningBid;
         $this->ReservePrice = $result->ReservePrice;
