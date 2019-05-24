@@ -11,8 +11,17 @@ class Item
     public $ShortDescription;
     public $OwnReferences;
     public $LongDescription;
+
+    /**
+     * @var bool|\DateTime
+     */
     public $StartDate;
+
+    /**
+     * @var bool|\DateTime
+     */
     public $EndDate;
+    
     public $CategoryId;
     public $OpeningBid;
     public $ReservePrice;
