@@ -33,6 +33,8 @@ class PublicService extends BaseService
         } catch (\SoapFault $e) {
             if ($e->faultstring === 'Forbidden') {
                 throw new InvalidCredentialsException();
+            } elseif ($e->faultstring === 'looks like we got no XML document') {
+                throw new ItemNotFoundException();
             } else {
                 throw new QuotaExceededException($e);
             }

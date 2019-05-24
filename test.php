@@ -40,6 +40,6 @@ $public = new PublicService([
     'appKey' => '05f131ab-2389-467b-84d4-51ae2958824f'
 ]);
 
-$response = $public->GetItem(351006211);
+$response = $public->GetItem(350254841);
 
 var_dump($response);

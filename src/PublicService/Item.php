@@ -21,7 +21,7 @@ class Item
      * @var bool|\DateTime
      */
     public $EndDate;
-    
+
     public $CategoryId;
     public $OpeningBid;
     public $ReservePrice;
