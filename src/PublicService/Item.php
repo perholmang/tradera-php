@@ -2,7 +2,7 @@
 
 namespace Holmang\Tradera\PublicService;
 
-use DateTimeZone;
+use Carbon\Carbon;
 
 class Item
 {
@@ -13,12 +13,12 @@ class Item
     public $LongDescription;
 
     /**
-     * @var bool|\DateTime
+     * @var Carbon
      */
     public $StartDate;
 
     /**
-     * @var bool|\DateTime
+     * @var Carbon
      */
     public $EndDate;
 
@@ -83,8 +83,8 @@ class Item
         $this->ShortDescription = $result->ShortDescription;
         $this->OwnReferences = $result->OwnReferences;
         $this->LongDescription = $result->LongDescription;
-        $this->StartDate = \DateTime::createFromFormat('Y-m-d\TH:i:s.u', $result->StartDate, new DateTimeZone('Europe/Stockholm'));
-        $this->EndDate = \DateTime::createFromFormat('Y-m-d\TH:i:s.u', $result->EndDate, new DateTimeZone('Europe/Stockholm'));
+        $this->StartDate = new Carbon($result->StartDate, 'Europe/Stockholm');
+        $this->EndDate = new Carbon($result->EndDate, 'Europe/Stockholm');
         $this->CategoryId = $result->CategoryId;
         $this->OpeningBid = $result->OpeningBid;
         $this->ReservePrice = $result->ReservePrice;
