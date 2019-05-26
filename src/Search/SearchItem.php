@@ -2,6 +2,8 @@
 
 namespace Holmang\Tradera\Search;
 
+use Carbon\Carbon;
+
 class SearchItem
 {
     /**
@@ -36,8 +38,9 @@ class SearchItem
 
     public $SellerDsrAverage;
 
+
     /**
-     * @var \DateTime
+     * @var Carbon
      */
     public $EndDate;
 
@@ -71,7 +74,7 @@ class SearchItem
         $this->MaxBid = $item->MaxBid;
         $this->ThumbnailLink = $item->ThumbnailLink;
         $this->SellerDsrAverage = $item->SellerDsrAverage;
-        $this->EndDate = new \DateTime($item->EndDate);
+        $this->EndDate = new Carbon($item->EndDate, 'Europe/Stockholm');
         $this->NextBid = $item->NextBid;
         $this->HasBids = $item->HasBids;
         $this->IsEnded = $item->IsEnded;
