@@ -10,7 +10,7 @@ class PublicService extends BaseService
 {
     public function __construct(array $config = [])
     {
-        parent::__construct('https://beta-api.tradera.com/v3/PublicService.asmx', $config);
+        parent::__construct('https://api.tradera.com/v3/PublicService.asmx', $config);
     }
 
     /**
