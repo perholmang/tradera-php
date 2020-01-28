@@ -2,7 +2,6 @@
 
 namespace Holmang\Tradera\Search;
 
-
 use Holmang\Tradera\BaseService;
 
 class SearchService extends BaseService
@@ -21,11 +20,10 @@ class SearchService extends BaseService
         $client = new \SoapClient($this->url . "?WSDL", array(
             'location' => $this->buildLocation(),
             'trace' => 1,
-            'exception' => 1
+            'exception' => 1,
         ));
 
         $response = $client->SearchAdvanced(['request' => $request]);
-        var_dump($response);die;
 
         if (!isset($response->SearchAdvancedResult) || !isset($response->SearchAdvancedResult->Items)) {
             // throw new \Exception($response->__to);
