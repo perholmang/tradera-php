@@ -27,6 +27,7 @@ class SearchService extends BaseService
 
         if (!isset($response->SearchAdvancedResult) || !isset($response->SearchAdvancedResult->Items)) {
             // throw new \Exception($response->__to);
+            var_dump($response);
             die('ok!');
         }
 

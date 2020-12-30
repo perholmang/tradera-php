@@ -21,9 +21,8 @@ class PublicService extends BaseService
     {
         $client = new \SoapClient($this->url . "?WSDL", array(
             "exceptions" => true,
-            "location" => $this->buildLocation()
+            "location" => $this->buildLocation(),
         ));
-
 
         $params = new \stdClass();
         $params->itemId = $itemId;
@@ -53,7 +52,7 @@ class PublicService extends BaseService
     public function GetOfficalTime()
     {
         $client = new \SoapClient($this->url . "?WSDL", array(
-            "location" => $this->buildLocation()
+            "location" => $this->buildLocation(),
         ));
 
         $response = $client->GetOfficalTime();
@@ -66,7 +65,7 @@ class PublicService extends BaseService
     public function GetCategories()
     {
         $client = new \SoapClient($this->url . "?WSDL", array(
-            "location" => $this->buildLocation()
+            "location" => $this->buildLocation(),
         ));
 
         $response = $client->GetCategories();
