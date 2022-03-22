@@ -19,7 +19,6 @@ class SearchAdvancedResult
      */
     public $Items;
 
-
     public function __construct($response)
     {
         $this->TotalNumberOfItems = $response->SearchAdvancedResult->TotalNumberOfItems;
@@ -31,10 +30,9 @@ class SearchAdvancedResult
             }
 
             return new SearchItem($item);
-        }, $response->SearchAdvancedResult->Items);
+        }, $response->SearchAdvancedResult->Items ?? []);
 
         $this->Items = array_filter($this->Items);
     }
-
 
 }
