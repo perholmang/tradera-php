@@ -3,6 +3,8 @@
 namespace Holmang\Tradera\Search;
 
 use Holmang\Tradera\BaseService;
+use Holmang\Tradera\Exceptions\InvalidCredentialsException;
+use SoapFault;
 
 class SearchService extends BaseService
 {
@@ -23,7 +25,16 @@ class SearchService extends BaseService
             'exception' => 1,
         ));
 
-        $response = $client->SearchAdvanced(['request' => $request]);
+        try {
+            $response = $client->SearchAdvanced(['request' => $request]);
+        } catch (SoapFault $e) {
+
+            if ($e->faultstring === 'Forbidden') {
+                throw new InvalidCredentialsException();
+            } else {
+                throw new \RuntimeException($e);
+            }
+        }
 
         if (!isset($response->SearchAdvancedResult)) {
             var_dump($response);
