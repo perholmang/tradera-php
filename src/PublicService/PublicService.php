@@ -78,4 +78,25 @@ class PublicService extends BaseService
 
         return $categories;
     }
+
+    public function GetSellerItems($userId, $categoryId)
+    {
+        $client = new \SoapClient($this->url . "?WSDL", array(
+            'location' => $this->buildLocation(),
+            'trace' => 1,
+            'exception' => 1,
+        ));
+
+        $params = new \stdClass();
+        $params->userId = $userId;
+        $params->categoryId = $categoryId;
+        $params->filterActive = 'Active';
+        $params->minEndDate = null;
+        $params->maxEndDate = null;
+        $params->filterItemType = 'All';
+
+        $response = $client->GetSellerItems($params);
+
+        return new GetSellerItemsResult($response);
+    }
 }
