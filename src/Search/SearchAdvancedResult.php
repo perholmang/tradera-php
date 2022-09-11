@@ -30,9 +30,20 @@ class SearchAdvancedResult
             }
 
             return new SearchItem($item);
-        }, $response->SearchAdvancedResult->Items ?? []);
+        }, getItems($response));
 
         $this->Items = array_filter($this->Items);
     }
+}
 
+function getItems($response)
+{
+    if (!isset($response->SearchAdvancedResult->Items)) return [];
+
+    if (is_array($response->SearchAdvancedResult->Items)) {
+        return $response->SearchAdvancedResult->Items;
+    } else if (is_object($response->SearchAdvancedResult->Items)) {
+        return [$response->SearchAdvancedResult->Items];
+    }
+    return [];
 }

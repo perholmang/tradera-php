@@ -36,9 +36,12 @@ function test_searchAdvanced()
     $request->ItemStatus = 'Active';
     $request->OrderBy = 'StartDateDescending';
     $request->CategoryId = 2108;
-    $request->Alias = 'Bleckburken';
+    $request->Alias = 'Trulse85';
     $request->ItemType = 'BuyItNow';
 
     $response = $service->searchAdvanced($request);
     var_dump($response->Items[0]);
 }
+
+
+test_searchAdvanced();
